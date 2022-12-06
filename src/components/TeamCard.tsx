@@ -10,13 +10,17 @@ export interface Team {
 interface ScorecardProps {
   team: Team;
 }
-const Scorecard = ({ team }: ScorecardProps) => {
-  const stuff = "stuff";
+const TeamCard = ({ team }: ScorecardProps) => {
+  // TODO: implement Add points
+  const addPoint = () => {};
+  // TODO: implement Remove points
+  const removePoint = () => {};
   return (
     <div className="h-64 rounded-md bg-white">
       <h2>{team.name}</h2>
+      <p>{team.points}</p>
     </div>
   );
 };
 
-export default Scorecard;
+export default TeamCard;
