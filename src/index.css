@@ -4,7 +4,7 @@
 
 /*Custom CSS*/
 body {
-    background: url(public/assets/pink-bg.jpg) no-repeat center center fixed;
+    background: url(/assets/pink-bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
