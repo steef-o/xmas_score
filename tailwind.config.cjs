@@ -8,6 +8,10 @@ module.exports = {
       maxWidth: {
         project: "1200px",
       },
+      fontFamily:{
+        serif: ['Lateef', "serif"],
+        sans: ['Inter', "sans-serif"],
+      }
     },
   },
   plugins: [],
