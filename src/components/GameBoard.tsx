@@ -1,8 +1,7 @@
 import { useAtom } from "jotai";
 
-import { teams as teamList } from "../state/Atoms";
-
 import TeamCard from "~/components/TeamCard";
+import { teams as teamList } from "~/state/Atoms";
 
 const GameBoard = () => {
   const [teams, setTeams] = useAtom(teamList);
@@ -40,11 +39,11 @@ const GameBoard = () => {
   };
 
   return (
-    <main className="mx-auto min-h-[36rem] max-w-project rounded-lg bg-red-400 px-10">
-      <h1 className="mt-24 pt-4 text-center text-3xl font-bold text-white">
+    <main className="mx-auto min-h-[36rem] max-w-project rounded-lg bg-red-400 px-6 pb-6">
+      <h1 className="mt-24 pt-6 text-center font-serif text-5xl font-bold text-white">
         Webstep X-mas scoreboard
       </h1>
-      <ul className="mt-10 grid grid-cols-4 gap-4">
+      <ul className="mt-10 grid grid-cols-4 gap-6">
         {teams.map((team) => (
           <TeamCard
             key={team.id}

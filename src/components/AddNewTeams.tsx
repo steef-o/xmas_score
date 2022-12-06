@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 
-import { teams as TeamList } from "../state/Atoms";
+import { teams as TeamList } from "~/state/Atoms";
 
 const AddNewTeams = () => {
   const [teams, setTeams] = useAtom(TeamList);
@@ -29,7 +29,7 @@ const AddNewTeams = () => {
       </form>
       <button
         className="mx-auto mt-4 block rounded-lg bg-green-700 py-2 px-16 text-white"
-        onClick={(e: React.MouseEvent<HTMLButtonElement>) => addTeam(e)}
+        onClick={(e) => addTeam(e)}
       >
         Legg til nytt team
       </button>
