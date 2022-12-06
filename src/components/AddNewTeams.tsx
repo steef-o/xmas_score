@@ -1,13 +1,11 @@
+import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 
-import { Team } from "~/TeamCard";
+import { teams as TeamList } from "../state/Atoms";
 
-interface AddNewTeamsProps {
-  teams: Team[];
-  setTeams: React.Dispatch<React.SetStateAction<Team[]>>;
-}
-const AddNewTeams = ({ teams, setTeams }: AddNewTeamsProps) => {
+const AddNewTeams = () => {
+  const [teams, setTeams] = useAtom(TeamList);
   const [teamName, setTeamName] = useState("");
   const addTeam = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -19,7 +17,7 @@ const AddNewTeams = ({ teams, setTeams }: AddNewTeamsProps) => {
     <>
       <form className="mx-auto mt-20 flex max-w-3xl flex-col">
         <label className="mx-auto" htmlFor="teamName">
-          Team Name
+          Team Navn
         </label>
         <input
           className="mx-auto mt-1 inline-block max-w-xs rounded-lg"

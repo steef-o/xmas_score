@@ -1,20 +1,11 @@
-import { useState } from "react";
+import AddNewTeams from "~/components/AddNewTeams";
+import GameBoard from "~/components/GameBoard";
 
-import AddNewTeams from "~/AddNewTeams";
-import GameBoard from "~/GameBoard";
-import { Team } from "~/TeamCard";
-
-const App = () => {
-  const [teams, setTeams] = useState<Team[]>([]);
-
-  console.log(teams);
-
-  return (
-    <div>
-      <GameBoard teams={teams} />
-      <AddNewTeams teams={teams} setTeams={setTeams} />
-    </div>
-  );
-};
+const App = () => (
+  <div>
+    <GameBoard />
+    <AddNewTeams />
+  </div>
+);
 
 export default App;
