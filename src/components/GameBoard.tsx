@@ -1,37 +1,42 @@
 import { useAtom } from "jotai";
 
-import { Team, teams as teamList } from "../state/Atoms";
+import { teams as teamList } from "../state/Atoms";
 
 import TeamCard from "~/components/TeamCard";
 
 const GameBoard = () => {
   const [teams, setTeams] = useAtom(teamList);
 
-  /*
-   * TODO: BUGFIX
-   * Updating state this way breaks the sort ordering of the cards as the updated card
-   * this is moved to the end of the list. This is a bug that needs to be fixed.
-   */
-
-  const addPoint = (team: Team) => {
-    const teamToUpdate = teams.find((item) => item.id === team.id);
-    const otherTeams = teams.filter((item) => item.id !== team.id);
+  const addPoint = (id: string) => {
+    // Get index of team in teams.
+    const index = teams.findIndex((team) => team.id === id);
+    // Create new array with selected team to update.
+    const teamToUpdate = teams.find((team) => team.id === id);
+    // Create new array with every team except the selected team.
+    const otherTeams = teams.filter((team) => team.id !== id);
     if (teamToUpdate) {
       teamToUpdate.points = teamToUpdate.points + 1;
-      setTeams([...otherTeams, teamToUpdate]);
+      // Update teams with new array in place (same index)
+      setTeams([...otherTeams.slice(0, index), teamToUpdate, ...otherTeams.slice(index)]);
     }
   };
-  const removePoint = (team: Team) => {
-    const teamToUpdate = teams.find((item) => item.id === team.id);
-    const otherTeams = teams.filter((item) => item.id !== team.id);
+
+  const subtractPoint = (id: string) => {
+    // Get index of team in teams.
+    const index = teams.findIndex((team) => team.id === id);
+    // Create new array with selected team to update.
+    const teamToUpdate = teams.find((team) => team.id === id);
+    // Create new array with every team except the selected team.
+    const otherTeams = teams.filter((team) => team.id !== id);
     if (teamToUpdate) {
       teamToUpdate.points = teamToUpdate.points - 1;
-      setTeams([...otherTeams, teamToUpdate]);
+      // Update teams with new array in place (same index)
+      setTeams([...otherTeams.slice(0, index), teamToUpdate, ...otherTeams.slice(index)]);
     }
   };
 
   const removeTeamById = (id: string) => {
-    setTeams([...teams.filter((item) => item.id !== id)]);
+    setTeams([...teams.filter((team) => team.id !== id)]);
   };
 
   return (
@@ -45,7 +50,7 @@ const GameBoard = () => {
             key={team.id}
             team={team}
             addPoint={addPoint}
-            removePoint={removePoint}
+            removePoint={subtractPoint}
             removeTeamById={removeTeamById}
           />
         ))}

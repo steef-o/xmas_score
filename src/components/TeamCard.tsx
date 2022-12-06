@@ -2,8 +2,8 @@ import { Team } from "../state/Atoms";
 
 interface TeamCardProps {
   team: Team;
-  addPoint: (team: Team) => void;
-  removePoint: (team: Team) => void;
+  addPoint: (id: string) => void;
+  removePoint: (id: string) => void;
   removeTeamById: (id: string) => void;
 }
 const TeamCard = ({ team, addPoint, removePoint, removeTeamById }: TeamCardProps) => (
@@ -11,11 +11,11 @@ const TeamCard = ({ team, addPoint, removePoint, removeTeamById }: TeamCardProps
     <h2 className="text-center">{team.name}</h2>
     <button onClick={() => removeTeamById(team.id)}>Remove</button>
     <div className="mt-10 flex">
-      <button className="text-2xl font-bold" onClick={() => removePoint(team)}>
+      <button className="text-2xl font-bold" onClick={() => removePoint(team.id)}>
         -
       </button>
       <h3 className="mx-auto px-8 text-4xl">{team.points}</h3>
-      <button className="text-2xl font-bold" onClick={() => addPoint(team)}>
+      <button className="text-2xl font-bold" onClick={() => addPoint(team.id)}>
         +
       </button>
     </div>
