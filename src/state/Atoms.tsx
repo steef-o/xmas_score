@@ -1,4 +1,4 @@
-import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
 export interface Team {
   points: number;
@@ -7,4 +7,5 @@ export interface Team {
   icon?: string;
 }
 
-export const teams = atom<Team[]>([]);
+// Global state with local storage
+export const teams = atomWithStorage<Team[]>("teams", []);
