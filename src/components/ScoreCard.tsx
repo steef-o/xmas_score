@@ -1,3 +1,5 @@
+import react from "react";
+
 interface ScorecardProps {}
 const Scorecard = ({}: ScorecardProps) => {
   const stuff = "stuff";
