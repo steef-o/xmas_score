@@ -5,6 +5,7 @@ export interface Team {
   name: string;
   id: string;
   icon?: string;
+  color: string;
 }
 
 // Global state with local storage

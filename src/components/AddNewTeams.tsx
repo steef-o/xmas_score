@@ -1,22 +1,23 @@
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import { FormEvent, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import { teams as TeamList } from "@/state/Atoms";
+import { getRandomColor } from "@/utils/colorUtils";
 
 const AddNewTeams = () => {
   const [teams, setTeams] = useAtom(TeamList);
   const [teamName, setTeamName] = useState("");
 
-  const addTeam = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const addTeam = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTeams([...teams, { points: 0, name: teamName, id: uuid() }]);
+    setTeams([...teams, { points: 0, name: teamName, id: uuid(), color: getRandomColor() }]);
     setTeamName("");
   };
 
   return (
     <>
-      <form className="mx-auto mt-20 flex max-w-3xl flex-col">
+      <form className="mx-auto mt-20 flex max-w-3xl flex-col" onSubmit={(e) => addTeam(e)}>
         <label className="mx-auto" htmlFor="teamName">
           Team Navn
         </label>
@@ -30,7 +31,9 @@ const AddNewTeams = () => {
       </form>
       <button
         className="mx-auto mt-4 block rounded-lg bg-green-700 py-2 px-16 text-white"
-        onClick={(e) => addTeam(e)}
+        type={"submit"}
+        // @ts-expect-error missing event
+        onClick={addTeam}
       >
         Legg til nytt team
       </button>
