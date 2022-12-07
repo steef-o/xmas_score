@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 
-import TeamCard from "~/components/TeamCard";
-import { teams as teamList } from "~/state/Atoms";
+import TeamCard from "@/components/TeamCard";
+import { teams as teamList } from "@/state/Atoms";
 
 const GameBoard = () => {
   const [teams, setTeams] = useAtom(teamList);
@@ -49,7 +49,7 @@ const GameBoard = () => {
             key={team.id}
             team={team}
             addPoint={addPoint}
-            removePoint={subtractPoint}
+            subtractPoint={subtractPoint}
             removeTeamById={removeTeamById}
           />
         ))}

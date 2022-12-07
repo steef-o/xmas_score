@@ -1,5 +1,5 @@
-import AddNewTeams from "~/components/AddNewTeams";
-import GameBoard from "~/components/GameBoard";
+import AddNewTeams from "@/components/AddNewTeams";
+import GameBoard from "@/components/GameBoard";
 
 const App = () => (
   <div>
