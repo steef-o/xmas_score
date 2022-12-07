@@ -6,7 +6,7 @@ import { teams as teamList } from "@/state/Atoms";
 const GameBoard = () => {
   const [teams, setTeams] = useAtom(teamList);
 
-  const addPoint = (id: string) => {
+  const addPoint = (id: string, pointsToAdd: number) => {
     // Get index of team in teams.
     const index = teams.findIndex((team) => team.id === id);
     // Create new array with selected team to update.
@@ -14,13 +14,13 @@ const GameBoard = () => {
     // Create new array with every team except the selected team.
     const otherTeams = teams.filter((team) => team.id !== id);
     if (teamToUpdate) {
-      teamToUpdate.points = teamToUpdate.points + 1;
+      teamToUpdate.points = teamToUpdate.points + pointsToAdd;
       // Update teams with new array in place (same index)
       setTeams([...otherTeams.slice(0, index), teamToUpdate, ...otherTeams.slice(index)]);
     }
   };
 
-  const subtractPoint = (id: string) => {
+  const subtractPoint = (id: string, pointsToSubtract: number) => {
     // Get index of team in teams.
     const index = teams.findIndex((team) => team.id === id);
     // Create new array with selected team to update.
@@ -28,7 +28,7 @@ const GameBoard = () => {
     // Create new array with every team except the selected team.
     const otherTeams = teams.filter((team) => team.id !== id);
     if (teamToUpdate) {
-      teamToUpdate.points = teamToUpdate.points - 1;
+      teamToUpdate.points = teamToUpdate.points - pointsToSubtract;
       // Update teams with new array in place (same index)
       setTeams([...otherTeams.slice(0, index), teamToUpdate, ...otherTeams.slice(index)]);
     }
