@@ -7,4 +7,5 @@ export interface Team {
   icon?: string;
 }
 
+// Global state with local storage
 export const teams = atomWithStorage<Team[]>("teams", []);
