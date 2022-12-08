@@ -7,13 +7,14 @@ export const useUpdatePoints = () => {
   const [teams, setTeams] = useAtom(teamList);
 
   const updatePoints = (id: string, value: number, operand: OperandType) => {
-    // Get index of team in teams.
+    // Get index of selected team in teams.
     const index = teams.findIndex((team) => team.id === id);
-    // Create new array with selected team to update.
+    // Find selected team to update.
     const teamToUpdate = teams.find((team) => team.id === id);
     // Create new array with every team except the selected team.
     const otherTeams = teams.filter((team) => team.id !== id);
 
+    // Return early if teamToUpdate is undefined.
     if (!teamToUpdate) return;
 
     // Add point(s) to total points.
@@ -24,7 +25,7 @@ export const useUpdatePoints = () => {
     if (operand === "subtract") {
       teamToUpdate.points.push(-value);
     }
-    // Update teams with new array in place (same index)
+    // Update teams with new array "in place" (preserving same indexes)
     setTeams([...otherTeams.slice(0, index), teamToUpdate, ...otherTeams.slice(index)]);
   };
 
