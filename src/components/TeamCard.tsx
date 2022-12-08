@@ -18,7 +18,7 @@ const TeamCard = ({ team, addPoint, subtractPoint, removeTeamById }: TeamCardPro
   >
     <h2 className="text-center font-serif text-3xl font-bold">{team.name}</h2>
     <button
-      className="visibleChildOnHover absolute top-5 rounded-md bg-gray-200 p-2 opacity-0 active:scale-105"
+      className="visibleChildOnHover absolute top-5 rounded-md bg-gray-200 p-2 opacity-0 active:scale-110"
       onClick={() => removeTeamById(team.id)}
     >
       <Trash />
@@ -26,19 +26,19 @@ const TeamCard = ({ team, addPoint, subtractPoint, removeTeamById }: TeamCardPro
     <div className="mt-10 flex">
       <div className="flex flex-col">
         <button
-          className="visibleChildOnHover my-1 rounded-[50%] bg-red-200 p-1 text-lg opacity-0 active:scale-105"
+          className="visibleChildOnHover my-1 rounded-[50%] bg-red-200 p-1 text-lg opacity-0 active:scale-110"
           onClick={() => subtractPoint(team.id, 1)}
         >
           -1
         </button>
         <button
-          className="visibleChildOnHover my-1 rounded-[50%] bg-red-200 p-1 text-lg opacity-0 active:scale-105"
+          className="visibleChildOnHover my-1 rounded-[50%] bg-red-200 p-1 text-lg opacity-0 active:scale-110"
           onClick={() => subtractPoint(team.id, 5)}
         >
           -5
         </button>
         <button
-          className="visibleChildOnHover my-1 rounded-[50%] bg-red-200 p-1 text-lg opacity-0 active:scale-105"
+          className="visibleChildOnHover my-1 rounded-[50%] bg-red-200 p-1 text-lg opacity-0 active:scale-110"
           onClick={() => subtractPoint(team.id, 10)}
         >
           -10
@@ -47,19 +47,19 @@ const TeamCard = ({ team, addPoint, subtractPoint, removeTeamById }: TeamCardPro
       <h3 className="mx-auto pt-10 text-4xl">{team.points}</h3>
       <div className="flex flex-col">
         <button
-          className="visibleChildOnHover my-1 rounded-[50%] bg-green-200 p-1 text-lg opacity-0 active:scale-105"
+          className="visibleChildOnHover my-1 rounded-[50%] bg-green-200 p-1 text-lg opacity-0 active:scale-110"
           onClick={() => addPoint(team.id, 1)}
         >
           +1
         </button>
         <button
-          className="visibleChildOnHover my-1 rounded-[50%] bg-green-200 p-1 text-lg opacity-0 active:scale-105"
+          className="visibleChildOnHover my-1 rounded-[50%] bg-green-200 p-1 text-lg opacity-0 active:scale-110"
           onClick={() => addPoint(team.id, 5)}
         >
           +5
         </button>
         <button
-          className="visibleChildOnHover my-1 rounded-[50%] bg-green-200 p-1 text-lg opacity-0 active:scale-105"
+          className="visibleChildOnHover my-1 rounded-[50%] bg-green-200 p-1 text-lg opacity-0 active:scale-110"
           onClick={() => addPoint(team.id, 10)}
         >
           +10
