@@ -49,10 +49,12 @@ const TeamCard = ({ team, removeTeamById }: TeamCardProps) => {
               isPositive && cardClicked ? "opacity-100" : "fadeOut"
             }`}
           >
-            +{team.points[team.points.length - 1]}
+            {/* Show last Positive number in array*/}+{team.points[team.points.length - 1]}
           </span>
 
           <h3 className="mx-auto py-2 text-4xl">
+            {/* TODO: Should maybe refactor as the performance and memory of an ever growing list and sum of that list is not ideal*/}
+            {/* Sum all points in array for a total score*/}
             {team.points.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}
           </h3>
           <span
@@ -60,6 +62,7 @@ const TeamCard = ({ team, removeTeamById }: TeamCardProps) => {
               isNegative && cardClicked ? "opacity-100" : "fadeOut"
             }`}
           >
+            {/* Show last Negative number in array*/}
             {team.points[team.points.length - 1]}
           </span>
         </div>
