@@ -11,7 +11,7 @@ const AddNewTeams = () => {
 
   const addTeam = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTeams([...teams, { points: 0, name: teamName, id: uuid(), color: getRandomColor() }]);
+    setTeams([...teams, { points: [0], name: teamName, id: uuid(), color: getRandomColor() }]);
     setTeamName("");
   };
 

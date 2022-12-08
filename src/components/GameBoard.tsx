@@ -14,7 +14,7 @@ const GameBoard = () => {
     // Create new array with every team except the selected team.
     const otherTeams = teams.filter((team) => team.id !== id);
     if (teamToUpdate) {
-      teamToUpdate.points = teamToUpdate.points + pointsToAdd;
+      teamToUpdate.points.push(pointsToAdd);
       // Update teams with new array in place (same index)
       setTeams([...otherTeams.slice(0, index), teamToUpdate, ...otherTeams.slice(index)]);
     }
@@ -28,7 +28,7 @@ const GameBoard = () => {
     // Create new array with every team except the selected team.
     const otherTeams = teams.filter((team) => team.id !== id);
     if (teamToUpdate) {
-      teamToUpdate.points = teamToUpdate.points - pointsToSubtract;
+      teamToUpdate.points.push(-pointsToSubtract);
       // Update teams with new array in place (same index)
       setTeams([...otherTeams.slice(0, index), teamToUpdate, ...otherTeams.slice(index)]);
     }

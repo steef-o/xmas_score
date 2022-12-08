@@ -1,7 +1,7 @@
 import { atomWithStorage } from "jotai/utils";
 
 export interface Team {
-  points: number;
+  points: number[];
   name: string;
   id: string;
   icon?: string;
