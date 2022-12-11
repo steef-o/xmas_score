@@ -1,4 +1,5 @@
 import { useUpdatePoints } from "@/hooks/useUpdatePoints";
+import { getText } from "@/services/textService";
 
 export type OperandType = "add" | "subtract";
 
@@ -18,8 +19,8 @@ const PointButton = ({ value, operand, buttonText, id }: PointButtonProps) => {
   const { updatePoints } = useUpdatePoints();
   return (
     <button
-      aria-label={`${operand} ${value} points`}
-      onClick={() => updatePoints(id, value, operand)}
+      aria-label={`${operand} ${value} ${getText("misc.points")}`}
+      onClick={() => updatePoints({ id, value, operand })}
       className={`visibleChildOnHover my-1 rounded-[50%] p-1 text-lg opacity-0 active:scale-110 ${OperandColor[operand]}`}
     >
       {buttonText}

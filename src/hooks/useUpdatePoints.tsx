@@ -6,7 +6,9 @@ import { teams as teamList } from "@/state/Atoms";
 export const useUpdatePoints = () => {
   const [teams, setTeams] = useAtom(teamList);
 
-  const updatePoints = (id: string, value: number, operand: OperandType) => {
+  const updatePoints = (payload: { id: string; value: number; operand: OperandType }) => {
+    const { id, value, operand } = payload;
+
     // Get index of selected team in teams.
     const index = teams.findIndex((team) => team.id === id);
     // Find selected team to update.
