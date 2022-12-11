@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import PointButton from "@/components/PointButton";
 import { Team } from "@/state/Atoms";
-import { borderColors } from "@/utils/colorUtils";
+import { borderTopColors } from "@/utils/colorUtils";
 
 interface TeamCardProps {
   team: Team;
@@ -27,11 +27,12 @@ const TeamCard = ({ team, removeTeamById }: TeamCardProps) => {
     <div
       onClick={handleCardClick}
       className={`card relative flex h-64 flex-col rounded-md border-t-[12px] border-t-green-500 bg-white p-4 ${
-        borderColors[team.color]
+        borderTopColors[team.color]
       }`}
     >
       <h2 className="text-center font-serif text-3xl font-bold">{team.name}</h2>
       <button
+        aria-label="Slett team"
         className="visibleChildOnHover absolute top-5 rounded-md bg-gray-200 p-2 opacity-0 active:scale-110"
         onClick={() => removeTeamById(team.id)}
       >

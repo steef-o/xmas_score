@@ -1,4 +1,4 @@
-export const borderColors: Record<string, string> = {
+export const borderTopColors: Record<string, string> = {
   red: "border-t-red-500",
   orange: "border-t-orange-500",
   green: "border-t-green-500",
@@ -17,6 +17,6 @@ export const borderColors: Record<string, string> = {
 
 // function for picking a random key from borderColors record
 export const getRandomColor = () => {
-  const keys = Object.keys(borderColors);
+  const keys = Object.keys(borderTopColors);
   return keys[(keys.length * Math.random()) << 0];
 };

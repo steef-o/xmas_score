@@ -15,11 +15,11 @@ const GameBoard = () => {
       <h1 className="mt-24 pt-6 text-center font-serif text-5xl font-bold text-white">
         Webstep X-mas scoreboard
       </h1>
-      <ul className="mt-10 grid grid-cols-4 gap-6">
+      <section className="mt-10 grid grid-cols-4 gap-6">
         {teams.map((team) => (
           <TeamCard key={team.id} team={team} removeTeamById={removeTeamById} />
         ))}
-      </ul>
+      </section>
     </main>
   );
 };
