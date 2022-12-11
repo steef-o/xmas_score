@@ -11,6 +11,6 @@
     "form.team.name": "Team name",
     "form.add.team.button": "Add new team",
     "card.delete.team.button": "Remove team",
-    "misc:points": "points"
+    "misc.points": "points"
   }
 }
