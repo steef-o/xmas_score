@@ -2,6 +2,7 @@ import { useAtom } from "jotai";
 import { FormEvent, useState } from "react";
 import { v4 as uuid } from "uuid";
 
+import { getText } from "@/services/textService";
 import { teams as TeamList } from "@/state/Atoms";
 import { getRandomColor } from "@/utils/colorUtils";
 
@@ -18,7 +19,7 @@ const AddNewTeams = () => {
   return (
     <form className="mx-auto mt-20 flex max-w-3xl flex-col" onSubmit={(e) => addTeam(e)}>
       <label className="mx-auto" htmlFor="teamName">
-        Team Navn
+        {getText("form.team.name")}
       </label>
       <input
         className="mx-auto mt-1 inline-block max-w-xs rounded-md p-2"
@@ -32,7 +33,7 @@ const AddNewTeams = () => {
         className="mx-auto mt-4 block rounded-lg bg-green-700 py-2 px-16 text-white"
         type={"submit"}
       >
-        Legg til nytt team
+        {getText("form.add.team.button")}
       </button>
     </form>
   );

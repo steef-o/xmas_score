@@ -2,6 +2,7 @@ import { Trash } from "phosphor-react";
 import { useState } from "react";
 
 import PointButton from "@/components/PointButton";
+import { getText } from "@/services/textService";
 import { Team } from "@/state/Atoms";
 import { borderTopColors } from "@/utils/colorUtils";
 
@@ -13,12 +14,14 @@ interface TeamCardProps {
 const TeamCard = ({ team, removeTeamById }: TeamCardProps) => {
   const [cardClicked, setCardClicked] = useState(false);
 
+  // Check if point is positive or negative
   const isPositive = team.points[team.points.length - 1] > 0;
   const isNegative = team.points[team.points.length - 1] < 0;
 
   const handleCardClick = () => {
     setCardClicked(true);
     setTimeout(() => {
+      // Fade point out after clicked
       setCardClicked(false);
     }, 1000);
   };
@@ -32,7 +35,7 @@ const TeamCard = ({ team, removeTeamById }: TeamCardProps) => {
     >
       <h2 className="text-center font-serif text-3xl font-bold">{team.name}</h2>
       <button
-        aria-label="Slett team"
+        aria-label={getText("card.delete.team.button")}
         className="visibleChildOnHover absolute top-5 rounded-md bg-gray-200 p-2 opacity-0 active:scale-110"
         onClick={() => removeTeamById(team.id)}
       >
@@ -50,7 +53,7 @@ const TeamCard = ({ team, removeTeamById }: TeamCardProps) => {
               isPositive && cardClicked ? "opacity-100" : "fadeOut"
             }`}
           >
-            {/* Show last Positive number in array*/}+{team.points[team.points.length - 1]}
+            {/* Show last positive number in array*/}+{team.points[team.points.length - 1]}
           </span>
 
           <h3 className="mx-auto py-2 text-4xl">
@@ -63,7 +66,7 @@ const TeamCard = ({ team, removeTeamById }: TeamCardProps) => {
               isNegative && cardClicked ? "opacity-100" : "fadeOut"
             }`}
           >
-            {/* Show last Negative number in array*/}
+            {/* Show last negative number in array*/}
             {team.points[team.points.length - 1]}
           </span>
         </div>

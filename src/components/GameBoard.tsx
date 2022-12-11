@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 
 import TeamCard from "@/components/TeamCard";
+import { getText } from "@/services/textService";
 import { teams as teamList } from "@/state/Atoms";
 
 const GameBoard = () => {
@@ -13,7 +14,7 @@ const GameBoard = () => {
   return (
     <main className="mx-auto min-h-[36rem] max-w-project rounded-lg bg-red-400 px-6 pb-6">
       <h1 className="mt-24 pt-6 text-center font-serif text-5xl font-bold text-white">
-        Webstep X-mas scoreboard
+        {getText("page.title")}
       </h1>
       <section className="mt-10 grid grid-cols-4 gap-6">
         {teams.map((team) => (
